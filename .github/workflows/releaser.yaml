@@ -1,0 +1,28 @@
+name: releaser
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - README.md
+      - .github/**
+      - .vscode/**
+      - "!.github/workflows/**"
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout for Github repository workspace
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - run: pip install -r requirements.txt
+      - run: python scripts/generate.py
