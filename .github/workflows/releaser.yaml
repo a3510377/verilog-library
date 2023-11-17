@@ -31,10 +31,7 @@ jobs:
       - name: Start generate...
         run: python scripts/generate.py
 
-      - name: Pack files
-        run: zip file out/*
-
       - uses: actions/upload-artifact@v3
         with:
-          name: MKVerilog-lib
-          path: file.zip
+          name: MKVerilog-lib.zip
+          path: out
