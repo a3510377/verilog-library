@@ -20,9 +20,21 @@ jobs:
       - name: Git checkout for Github repository workspace
         uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v4
+      - name: Setup python environment
+        uses: actions/setup-python@v4
         with:
           python-version: "3.11"
 
-      - run: pip install -r scripts/requirements.txt
-      - run: python scripts/generate.py
+      - name: Install python requirements packages
+        run: pip install -r scripts/requirements.txt
+
+      - name: Start generate...
+        run: python scripts/generate.py
+
+      - name: Pack files
+        run: zip file out/*
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: MKVerilog-lib
+          path: file.zip
