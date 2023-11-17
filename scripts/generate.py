@@ -15,6 +15,9 @@ OUT_DIR.mkdir()
 
 infos: list[str] = []
 for dir_path in BASE_DIR.iterdir():
+    class_out_dir = tmp = OUT_DIR / dir_path.name
+    class_out_dir.mkdir(parents=True, exist_ok=True)
+
     for path in dir_path.iterdir():
         info = ""
 
@@ -29,15 +32,15 @@ for dir_path in BASE_DIR.iterdir():
             for asset_file in assets_dir.iterdir():
                 filename = asset_file.relative_to(assets_dir)
                 tmp = f"assets/{basename}{filename}"
-                out_path = OUT_DIR / tmp
                 info = info.replace(f"./assets/{filename}", tmp)
+                out_path = OUT_DIR / tmp
                 out_path.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy(asset_file, out_path)
 
         for file in [*path.glob("*.bsf"), *path.glob("*.v")]:
             if (OUT_DIR / file.name).is_file():
                 print(f"[WARNING] Skipping file {file.name!r}, file is already")
-            shutil.copy(file, OUT_DIR)
+            shutil.copy(file, class_out_dir / file.name)
 
         infos.append(info)
 
