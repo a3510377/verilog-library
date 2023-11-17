@@ -9,7 +9,8 @@ BASE_DIR = ROOT_DIR / "lib"
 OUT_DIR = ROOT_DIR / "out"
 SCRIPTS_DIR = ROOT_DIR / "scripts"
 
-shutil.rmtree(OUT_DIR)
+if OUT_DIR.is_dir():
+    shutil.rmtree(OUT_DIR)
 OUT_DIR.mkdir()
 
 infos: list[str] = []
