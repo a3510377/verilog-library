@@ -1,4 +1,4 @@
-## Full Adder
+### Full Adder
 
 ```v
 full_adder(input A, B, Ci, output Co, S)

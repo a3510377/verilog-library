@@ -15,6 +15,9 @@ OUT_DIR.mkdir()
 
 infos: list[str] = []
 for dir_path in BASE_DIR.iterdir():
+    if (info_file := dir_path / "README.md").is_file():
+        infos.append(info_file.read_text())
+
     for path in dir_path.iterdir():
         info = ""
 
@@ -41,6 +44,7 @@ for dir_path in BASE_DIR.iterdir():
 
         infos.append(info)
 
+# README
 html_template = (SCRIPTS_DIR / "README.template.html").read_text()
 md_template = (SCRIPTS_DIR / "README.template.md").read_text()
 readme = md_template.format(CONTENT="\n".join(infos))
@@ -50,12 +54,14 @@ readme = md_template.format(CONTENT="\n".join(infos))
         "{{CONTENT}}",
         markdown.markdown(
             readme,
-            exts=[
-                "markdown.extensions.extra",
-                "markdown.extensions.codehilite",
-                "markdown.extensions.tables",
-                "markdown.extensions.toc",
+            extensions=[
+                "extra",
+                "fenced_code",
+                "tables",
+                "toc",
             ],
         ),
     )
 )
+# LICENSE
+shutil.copy(ROOT_DIR / "LICENSE", OUT_DIR)

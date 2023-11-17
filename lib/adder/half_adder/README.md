@@ -1,4 +1,4 @@
-## Half Adder
+### Half Adder
 
 ```v
 half_adder(input A, B, output C, S);

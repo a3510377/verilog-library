@@ -1,3 +1,5 @@
 # verilog-library
 
+[TOC]
+
 {CONTENT}
