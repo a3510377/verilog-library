@@ -65,7 +65,7 @@ jobs:
       - shell: bash
         run: |
           cd out_deploy
-          cp ../out/assets assets
+          cp -r ../out/assets assets
           cp ../out/README.html index.html
           ln -s index.html 404.html
 
