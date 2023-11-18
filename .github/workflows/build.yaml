@@ -1,6 +1,7 @@
-name: releaser
+name: deploy
 on:
   workflow_dispatch:
+  workflow_call:
   push:
     branches:
       - main
@@ -14,28 +15,6 @@ on:
       - main
 
 jobs:
-  generate:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Git checkout for Github repository workspace
-        uses: actions/checkout@v4
-
-      - name: Setup python environment
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
-
-      - name: Install python requirements packages
-        run: pip install -r scripts/requirements.txt
-
-      - name: Start generate...
-        run: python scripts/generate.py
-
-      - uses: actions/upload-artifact@v3
-        with:
-          name: MKVerilog-lib.zip
-          path: out
-
   deploy:
     needs: [generate]
     runs-on: ubuntu-latest
@@ -54,6 +33,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Generate out
+        uses: ./generate.yaml
 
       - shell: bash
         run: mkdir out_deploy
