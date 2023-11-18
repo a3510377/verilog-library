@@ -5,7 +5,7 @@ full_adder(input A, B, Ci, output Co, S)
 ```
 
 ![RTL_View](./assets/RTL_view.png)
-![Symbol](./assets/symbol.png)
+![Symbol](./assets/Symbol.png)
 
 > Equivalent module:
 
