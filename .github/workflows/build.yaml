@@ -15,6 +15,9 @@ on:
       - main
 
 jobs:
+  setup:
+    uses: .github/workflows/generate.yaml
+
   deploy:
     runs-on: ubuntu-latest
     # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
@@ -30,9 +33,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Generate out
-        uses: a3510377/verilog-library/.github/workflows/generate.yaml@main
-
       - shell: bash
         run: mkdir out_deploy
 
