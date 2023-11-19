@@ -15,9 +15,6 @@ on:
       - main
 
 jobs:
-  setup:
-    uses: .github/workflows/generate.yaml
-
   deploy:
     runs-on: ubuntu-latest
     # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
@@ -33,6 +30,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+
+      - name: Local Action Call
+        uses: .github/actions/generate
+
       - shell: bash
         run: mkdir out_deploy
 
