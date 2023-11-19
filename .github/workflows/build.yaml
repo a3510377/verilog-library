@@ -31,7 +31,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Generate out
-        uses: ./.github/workflows/generate.yaml
+        uses: a3510377/verilog-library/.github/workflows/generate.yaml@main
 
       - shell: bash
         run: mkdir out_deploy
