@@ -1,6 +1,6 @@
 <div align="center">
 
-<img alt="LOGO" src="./.github/assets/logo.png" width="300" height="300" />
+<img alt="LOGO" src="./.github/assets/logo.png" width="200" height="200" />
 
 # verilog-library
 
