@@ -4,7 +4,7 @@
 
 # verilog-library
 
-A verilog library
+A very simple Verilog library, including Verilog and Symbol
 
 </div>
 
