@@ -70,7 +70,7 @@ jobs:
           cp -r ../out/assets assets
           cp ../out/README.html index.html
           ln -s index.html 404.html
-          cp ./.github/assets/favicon.ico favicon.ico
+          cp ../.github/assets/favicon.ico favicon.ico
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
