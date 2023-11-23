@@ -14,3 +14,5 @@ rs_flip_flop(input R, S, output Q, Qbar);
 ```v
 nand_rs_flip_flop(input Rbar, Sbar, output Q, Qbar);
 ```
+
+![Alt text](./assets/NAND_RTL_view.png)
