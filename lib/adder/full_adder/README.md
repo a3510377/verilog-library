@@ -7,7 +7,7 @@ full_adder(input A, B, Ci, output Co, S)
 ![RTL_View](./assets/RTL_view.png)
 ![Symbol](./assets/Symbol.png)
 
-### Other logic full adder
+#### Other implementations
 
 ```v
 module s_full_adder(input A, B, Ci, output Co, S);
