@@ -106,7 +106,7 @@ jobs:
       - name: Setup
         run: |
           echo Ref Name: ${{ github.ref_name }}
-          zip file -r MKVerilog-lib-${{ github.ref_name }} out
+          zip -r MKVerilog-lib-${{ github.ref_name }}.zip out/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
