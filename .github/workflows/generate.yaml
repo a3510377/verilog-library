@@ -34,7 +34,7 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: MKVerilog-lib.zip
+          name: MKVerilog-lib-div.zip
           path: out
 
   deploy:
@@ -61,7 +61,7 @@ jobs:
 
       - uses: actions/download-artifact@v3
         with:
-          name: MKVerilog-lib.zip
+          name: MKVerilog-lib-div.zip
           path: out
 
       - shell: bash
