@@ -30,7 +30,7 @@ jobs:
 
       - uses: actions/download-artifact@v3
         with:
-          name: ${{ needs.build.outputs.FILE_NAME }}
+          name: MKVerilog-lib-${{ github.ref_name }}.zip
           path: out
 
       # https://github.com/mikepenz/release-changelog-builder-action
@@ -39,11 +39,6 @@ jobs:
         uses: mikepenz/release-changelog-builder-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Move artifacts
-        run: |
-          cd out
-          mv ${{ needs.build.outputs.FILE_NAME }}/* .
 
       - name: Setup
         run: |

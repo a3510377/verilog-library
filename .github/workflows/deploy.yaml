@@ -39,13 +39,8 @@ jobs:
 
       - uses: actions/download-artifact@v3
         with:
-          name: ${{ needs.build.outputs.FILE_NAME }}
+          name: MKVerilog-lib-dev.zip
           path: out
-
-      - name: Move artifacts
-        run: |
-          cd out
-          mv ${{ needs.build.outputs.FILE_NAME }}/* .
 
       - shell: bash
         run: |
