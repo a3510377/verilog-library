@@ -16,7 +16,7 @@ module s_full_adder(input A, B, Ci, output Co, S);
 endmodule
 ```
 
-![S-Full adder](assets/s_RTL_view.png)
+![S-Full adder](./assets/s_RTL_view.png)
 
 > Verilog special syntax
 
@@ -26,4 +26,4 @@ module v_full_adder(input A, B, Ci, output Co, S);
 endmodule
 ```
 
-![V-Full adder](assets/v_RTL_view.png)
+![V-Full adder](./assets/v_RTL_view.png)
