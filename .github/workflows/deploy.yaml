@@ -14,9 +14,6 @@ jobs:
   build:
     uses: ./.github/workflows/generate.yaml
     secrets: inherit
-    with:
-      release: true
-      target_subproject: ${{ github.event.inputs.target_subproject }}
 
   deploy:
     needs: build
