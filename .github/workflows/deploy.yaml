@@ -44,6 +44,7 @@ jobs:
 
       - shell: bash
         run: |
+          ls -F
           cd out_deploy
           cp -r ../out/assets assets
           cp ../out/README.html index.html
