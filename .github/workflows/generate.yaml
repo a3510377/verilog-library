@@ -105,7 +105,6 @@ jobs:
 
       - name: Setup
         run: |
-          apt-get install zip
           echo Ref Name: ${{ github.ref_name }}
           zip file -r MKVerilog-lib-${{ github.ref_name }} out
         env:
