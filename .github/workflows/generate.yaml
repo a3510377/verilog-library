@@ -27,7 +27,11 @@ jobs:
       - name: Start generate...
         run: python scripts/generate.py
 
+      - name: Set output
+        id: variables
+        run: echo "FILE_NAME=MKVerilog-lib-${{ inputs.releaseVersion }}.zip" >> "$GITHUB_OUTPUT"
+
       - uses: actions/upload-artifact@v3
         with:
-          name: MKVerilog-lib-${{ inputs.releaseVersion }}.zip
+          name: ${{ steps.variables.outputs.FILE_NAME }}
           path: out

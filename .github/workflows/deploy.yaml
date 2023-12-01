@@ -39,7 +39,7 @@ jobs:
 
       - uses: actions/download-artifact@v3
         with:
-          name: MKVerilog-lib-div.zip
+          name: ${{ needs.build.outputs.FILE_NAME }}
           path: out
 
       - shell: bash

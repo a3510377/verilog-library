@@ -15,7 +15,7 @@ jobs:
 
   release:
     if: startsWith(github.ref, 'refs/tags/v')
-    needs: [build]
+    needs: build
     runs-on: ubuntu-latest
     # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
     # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -30,7 +30,7 @@ jobs:
 
       - uses: actions/download-artifact@v3
         with:
-          name: MKVerilog-lib-div.zip
+          name: ${{ needs.build.outputs.FILE_NAME }}
           path: out
 
       # https://github.com/mikepenz/release-changelog-builder-action
