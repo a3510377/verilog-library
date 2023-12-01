@@ -42,12 +42,12 @@ jobs:
           name: ${{ needs.build.outputs.FILE_NAME }}
           path: out
 
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: out
+
       - shell: bash
         run: |
-          ls -F
-          cd out
-          ls -rF
-          cd ..
           cd out_deploy
           cp -r ../out/assets assets
           cp ../out/README.html index.html
