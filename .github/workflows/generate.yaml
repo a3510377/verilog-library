@@ -3,17 +3,11 @@ on:
   workflow_dispatch:
   workflow_call:
     inputs:
-      release:
-        description: Release Mode
-        type: boolean
-        required: false
-        default: false
-
-      target_subproject:
-        description: leave it empty to build all, use `,` split versions
+      releaseVersion:
+        description: "Release version, ex: div, v0.0.1"
         type: string
         required: false
-        default: ""
+        default: "dev"
 
 jobs:
   generate:
@@ -35,5 +29,5 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: MKVerilog-lib-div.zip
+          name: MKVerilog-lib-${{ inputs.releaseVersion }}.zip
           path: out

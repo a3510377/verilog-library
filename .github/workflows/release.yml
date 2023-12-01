@@ -2,13 +2,6 @@ name: release
 
 on:
   workflow_dispatch:
-    inputs:
-      target_subproject:
-        description: leave it empty to build all, use `,` split versions
-        type: string
-        required: false
-        default: ""
-
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#release
   release:
     types: [created]
@@ -18,8 +11,7 @@ jobs:
     uses: ./.github/workflows/generate.yaml
     secrets: inherit
     with:
-      release: true
-      target_subproject: ${{ github.event.inputs.target_subproject }}
+      releaseVersion: ${{ github.ref_name }}
 
   release:
     if: startsWith(github.ref, 'refs/tags/v')
