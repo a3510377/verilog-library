@@ -25,6 +25,9 @@ jobs:
     permissions:
       contents: write
     steps:
+      # https://github.com/actions/checkout
+      - uses: actions/checkout@v4
+
       - uses: actions/download-artifact@v3
         with:
           name: MKVerilog-lib-div.zip
