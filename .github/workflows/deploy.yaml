@@ -42,9 +42,10 @@ jobs:
           name: ${{ needs.build.outputs.FILE_NAME }}
           path: out
 
-      - name: Display structure of downloaded files
-        run: ls -R
-        working-directory: out
+      - name: Move artifacts
+        run: |
+          cd out
+          mv ${{ needs.build.outputs.FILE_NAME }}/* .
 
       - shell: bash
         run: |

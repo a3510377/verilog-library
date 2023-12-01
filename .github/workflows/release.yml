@@ -40,6 +40,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Move artifacts
+        run: |
+          cd out
+          mv ${{ needs.build.outputs.FILE_NAME }}/* .
+
       - name: Setup
         run: |
           echo Ref Name: ${{ github.ref_name }}
